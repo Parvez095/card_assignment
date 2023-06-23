@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import CardListingPage from './components/CardListingPage';
+import SearchBar from './components/SearchBar';
 
-function App() {
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/cards')
+      .then(response => response.json())
+      .then(data => setCards(data))
+      .catch(error => console.log(error));
+  }, []);
+
+  const filteredCards = cards.filter(card => {
+    return card.name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CardListingPage cards={filteredCards} />
     </div>
   );
-}
+};
 
 export default App;
