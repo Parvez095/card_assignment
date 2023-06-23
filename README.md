@@ -7,7 +7,7 @@ This is a Card Listing application built with React. It fetches card data from a
 
 1. Clone the repository:
 
-   git clone https://github.com/your-username/card-listing-app.git
+   git clone https://github.com/Parvez095/card_assignment.git
 Navigate to the project directory:
 
 cd card-listing-app
