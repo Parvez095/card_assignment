@@ -7,7 +7,7 @@ const App = () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch('https://master--prismatic-lokum-919d4a.netlify.app//api/cards')
+    fetch('https://master--prismatic-lokum-919d4a.netlify.app/api/cards')
       .then(response => response.json())
       .then(data => setCards(data))
       .catch(error => console.log(error));
