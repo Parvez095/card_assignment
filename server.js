@@ -1,12 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-// const PORT = 3001;
 
-// Enable CORS
 app.use(cors());
-
-// Mock JSON data
 const jsonData = {
     data: [
         {
@@ -41,9 +37,7 @@ const jsonData = {
           card_type: 'subscription',
           limit: 10,
           status: 'active'
-        },
-        // Add the additional card data here
-        {
+        },        {
           name: 'Netflix',
           budget_name: 'Entertainment subscription',
           owner_id: 3,
@@ -210,7 +204,6 @@ app.get('/api/cards', (req, res) => {
   res.json(paginatedCards);
 });
 
-// Start the server
 app.listen(3001, () => {
   console.log('Server is running on port 3001');
 });
