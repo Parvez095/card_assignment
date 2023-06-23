@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CardListingPage from './components/CardListingPage';
 import SearchBar from './components/SearchBar';
-
+// app.js working
 const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [cards, setCards] = useState([]);
